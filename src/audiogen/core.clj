@@ -23,5 +23,3 @@
             (piano keyednote)
             (recur (keynotegrabber))))))
   (println "thanks for playing!"))
-
-(start)
