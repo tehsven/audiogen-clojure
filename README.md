@@ -18,6 +18,7 @@ cd audiogen-clojure
 
 ## Usage
 lein run
+
 ; start typing keys!!
 
 ## Options
