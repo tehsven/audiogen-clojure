@@ -2,7 +2,7 @@
 
 exploring audio generation with clojure
 
-## Dependencies
+## deps
 http://brew.sh/
 
 brew install git
@@ -11,17 +11,15 @@ brew install clojure
 
 brew install lein
 
-## Installation
+## install
 git clone git@github.com:tehsven/audiogen-clojure.git
 
 cd audiogen-clojure
 
-## Usage
+## usage
 lein run
 
-; select the applet and start typing keys!
-
-## License
+## license
 
 Copyright © 2013 tehsven
 
