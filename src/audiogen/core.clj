@@ -4,6 +4,8 @@
         overtone.inst.piano)
   (:gen-class))
 
+(def key-reader (ConsoleReader.))
+
 (def oct (agent 72))
 (defn oct-up [c] (+ c 12))
 (defn oct-down [c] (- c 12))
@@ -15,35 +17,31 @@
   107 #(+ @oct 12), 111 #(+ @oct 13), 108 #(+ @oct 14), 112 #(+ @oct 15)
   })
 
-(defn note-player
-  "plays the provided note using the current instrument"
-  [note]
-  (piano note))
-
 (defn is-note?
   "returns if the input key is a note or not"
   [note]
   (contains? int-to-note note))
 
-(def key-reader (ConsoleReader.))
+(defn note-player
+  "plays the provided note using the current instrument"
+  [note]
+  (if (is-note? note)
+    (piano ((int-to-note note)))))
 
-(defn key-parse
-  "parses a key into a symbol"
-  []
-  (let [read-key (.readCharacter key-reader)]
-    (if (contains? int-to-note read-key)
-      (note-player ((int-to-note read-key)))
-      (case read-key
-        113 :quit ;q
-        45 (send oct oct-down) ;-
-        61 (send oct oct-up) ;+
-        :default))))
-
-(defn key-convert
-  [key-sym]
-  (case key-sym
-    :quit false
-    true))
+(defmulti key-dispatch
+  "converts a keystroke to a function call"
+  int)
+(defmethod key-dispatch 113 [_] ;q quit
+  false)
+(defmethod key-dispatch 45 [_] ;- lower octave
+  (send oct oct-down)
+  true) 
+(defmethod key-dispatch 61 [_] ;+ raise octave
+  (send oct oct-up)
+  true)
+(defmethod key-dispatch :default [note] ;attempt to play
+  (note-player note)
+  true)
 
 (defn print-usage
   []
@@ -56,6 +54,6 @@
   "convert keystrokes into musical instrument playback"
   []
   (print-usage)
-  (let [loop-fn #(key-convert (key-parse))]
+  (let [loop-fn #(key-dispatch (.readCharacter key-reader))]
       (while (loop-fn)))
   "thanks for playing!")
