@@ -7,6 +7,8 @@ http://brew.sh/
 
 brew install git
 
+brew install clojure
+
 brew install lein
 
 ## Installation
@@ -16,6 +18,7 @@ cd audiogen-clojure
 
 ## Usage
 lein run
+; start typing keys!!
 
 ## Options
 
