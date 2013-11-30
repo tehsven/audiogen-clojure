@@ -46,7 +46,5 @@
   []
   (println "start typing for great musical fun!")
   (let [loop-fn #(key-convert (key-parse))]
-      (loop [continue? (loop-fn)]
-        (if continue?
-            (recur (loop-fn)))))
+      (while (loop-fn)))
   "thanks for playing!")
