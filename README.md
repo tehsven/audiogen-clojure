@@ -19,13 +19,7 @@ cd audiogen-clojure
 ## Usage
 lein run
 
-; start typing keys!!
-
-## Options
-
-## Examples
-
-### Bugs
+; select the applet and start typing keys!
 
 ## License
 
