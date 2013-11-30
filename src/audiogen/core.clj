@@ -44,7 +44,7 @@
 (defn start
   "convert keystrokes into musical instrument playback"
   []
-  (println "start typing for great musical fun!")
+  (println "start typing for instrument playback! q to quit")
   (let [loop-fn #(key-convert (key-parse))]
       (while (loop-fn)))
   "thanks for playing!")
