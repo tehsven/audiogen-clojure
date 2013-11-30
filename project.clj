@@ -5,5 +5,5 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
   				 [overtone "0.9.1"]
-  				 [jline "0.9.94"]]
-  :main audiogen.core)
+  				 [jline "2.11"]]
+  :repl-options {:init (load-file "src/audiogen/user.clj") })

@@ -8,7 +8,7 @@ http://brew.sh/
 ```
 brew install git
 brew install clojure
-brew install lein
+brew install leiningen
 ```
 
 ## install
@@ -20,7 +20,7 @@ lein deps
 
 ## usage
 ```
-lein run
+lein trampoline repl
 ```
 
 ## license
