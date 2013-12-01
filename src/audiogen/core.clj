@@ -1,9 +1,8 @@
 (ns audiogen.core
   (:import jline.console.ConsoleReader)
-  (:use audiogen.keydispatch
-        audiogen.piano
-        overtone.live
-        overtone.inst.piano)
+  (:use overtone.live
+        audiogen.keydispatch
+        audiogen.piano)
   (:gen-class))
 
 (def key-reader (ConsoleReader.))
