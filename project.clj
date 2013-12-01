@@ -6,4 +6,4 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
   				 [overtone "0.9.1"]
   				 [jline "2.11"]]
-  :repl-options {:init (load-file "src/audiogen/user.clj") })
+  :repl-options {:init (load-file "src/audiogen/repl.clj") })
