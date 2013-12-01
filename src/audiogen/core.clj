@@ -12,12 +12,12 @@
   (println 
   "start typing for instrument playback!
   +- : change octave
-  q : quit"))
+  ESC : quit"))
 
 (defn start
   "convert keystrokes into musical instrument playback"
   []
   (print-usage)
   (let [loop-fn #(key-dispatch (.readCharacter key-reader))]
-      (while (loop-fn)))
+      (while (not= (loop-fn) :quit)))
   "thanks for playing!")
