@@ -1,4 +1,4 @@
-(defproject audiogen "0.1.1"
+(defproject audiogen "0.1.2"
   :description "exploring audio generation with clojure"
   :url "https://github.com/tehsven/audiogen-clojure/"
   :license {:name "Eclipse Public License"

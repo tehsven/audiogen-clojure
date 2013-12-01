@@ -2,7 +2,8 @@
   (:import jline.console.ConsoleReader)
   (:use overtone.live
         audiogen.keydispatch
-        audiogen.piano)
+        audiogen.piano
+        audiogen.drums)
   (:gen-class))
 
 (def key-reader (ConsoleReader.))
