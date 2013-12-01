@@ -10,13 +10,14 @@
 
 (defn key-dispatch
 	"dispatches a keyboard keypress"
-	[keypress]
-	(if (contains? @all-bindings keypress)
-		((@all-bindings keypress)) ;evaluate
-		(println keypress)))
+	[kp-int]
+	(let [kp-char (char kp-int)]
+		(if (contains? @all-bindings kp-char)
+			((@all-bindings kp-char)) ;evaluate
+			(println kp-char kp-int))))
 
 (defonce sys-bindings {
-	27 (fn [] :quit) ;escape to quit
+	(char 27) (fn [] :quit) ;escape
 	})
 
 (add-bindings sys-bindings)
