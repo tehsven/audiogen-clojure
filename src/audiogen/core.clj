@@ -21,4 +21,4 @@
   (print-usage)
   (let [loop-fn #(key-dispatch (.readCharacter key-reader))]
       (while (not= (loop-fn) :quit)))
-  "thanks for playing!")
+  (println "thanks for playing!"))
