@@ -1,21 +1,17 @@
 (ns audiogen.piano
-  (:use overtone.inst.piano 
-  		audiogen.keydispatch)
+  (:use overtone.inst.piano)
   (:gen-class))
 
 (def oct (agent 72))
-
-(def oct-bindings {
-  \- #(send oct (fn [c] (- c 12))),
-  \= #(send oct (fn [c] (+ c 12)))
-  })
 
 (defn play
 	"plays a note against the current octave"
 	[note]
 	(piano (+ @oct note)))
 
-(def note-bindings {
+(def bindings {
+  \- #(send oct (fn [c] (- c 12))),
+  \= #(send oct (fn [c] (+ c 12))),
   \a #(play 0),
   \w #(play 1),
   \s #(play 2),
@@ -33,6 +29,3 @@
   \l #(play 14),
   \p #(play 15)
   })
-
-(add-bindings oct-bindings)
-(add-bindings note-bindings)

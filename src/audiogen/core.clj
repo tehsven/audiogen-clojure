@@ -1,12 +1,8 @@
 (ns audiogen.core
   (:import jline.console.ConsoleReader)
   (:use overtone.live
-        audiogen.keydispatch
-        audiogen.piano
-        audiogen.drums)
+        audiogen.keydispatch)
   (:gen-class))
-
-(def key-reader (ConsoleReader.))
 
 (defn print-usage
   []
@@ -15,10 +11,15 @@
   +- : change octave
   ESC : quit"))
 
+(def key-reader (ConsoleReader.))
+
 (defn start
   "convert keystrokes into musical instrument playback"
   []
   (print-usage)
+  (use-bindings 'audiogen.sysexit)
+  (use-bindings 'audiogen.piano)
+  (use-bindings 'audiogen.drums)
   (let [loop-fn #(key-dispatch (.readCharacter key-reader))]
       (while (not= (loop-fn) :quit)))
   (println "thanks for playing!"))
