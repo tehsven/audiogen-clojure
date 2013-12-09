@@ -11,14 +11,11 @@
 (defn use-bindings
   "adds bindings from the provided namespace"
   [namespace]
-  (let [ns `~namespace]
-    (require ns)
-    (add-bindings (var-get (ns-resolve ns 'bindings)))))
+  	(require namespace)
+  	(add-bindings (var-get (ns-resolve namespace 'bindings))))
 
 (defn key-dispatch
 	"dispatches a keyboard keypress"
 	[kp-int]
 	(let [kp-char (char kp-int)]
-		(if (contains? @all-bindings kp-char)
-			((@all-bindings kp-char)) ;evaluate
-			(println kp-char kp-int))))
+		((@all-bindings kp-char #(println kp-char kp-int))))) ;evaluate
