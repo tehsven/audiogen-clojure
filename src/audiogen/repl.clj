@@ -1,3 +1,3 @@
 (ns user)
 (use 'audiogen.core)
-(start)
+(start-default)
