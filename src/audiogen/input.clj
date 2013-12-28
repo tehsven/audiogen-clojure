@@ -39,7 +39,7 @@
 	[kp-fn kr-fn]
 	(add-watch keypress-state :x (key-state-watcher kp-fn kr-fn))
 	(loop [kch (build-key-changes)]
-		(if (not (empty? ks))
+		(if (not (empty? kch))
 			(send keypress-state (fn [c n] (merge c n)) kch))
 		(Thread/sleep 5)
 		(recur (build-key-changes))))
