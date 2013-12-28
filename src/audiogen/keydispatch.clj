@@ -6,7 +6,7 @@
 (defn add-bindings
 	"adds a map of keys"
 	[new-bindings]
-	(send all-bindings (fn [c n] (merge c n)) new-bindings))
+	(send all-bindings #(merge %1 %2) new-bindings))
 
 (defn use-bindings
   "adds bindings from the provided namespace"
@@ -16,6 +16,5 @@
 
 (defn key-dispatch
 	"dispatches a keyboard keypress"
-	[kp-int]
-	(let [kp-char (char kp-int)]
-		((@all-bindings kp-char #(println kp-char kp-int))))) ;evaluate
+	[kp-str]
+	((@all-bindings kp-str #(println kp-str)))) ;evaluate

@@ -2,5 +2,5 @@
   (:gen-class))
 
 (def bindings {
-	(char 27) (fn [] :quit) ;escape
+	"escape" #(System/exit 0)
 	})
