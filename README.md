@@ -7,13 +7,11 @@ http://brew.sh/
 
 ```
 brew install git
-brew install clojure
 brew install leiningen
 ```
 ```
 brew : 0.9.5
 git : 1.8.3.1
-clojure : 1.5.1
 lein : 2.3.4
 ```
 
