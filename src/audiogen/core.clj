@@ -8,7 +8,7 @@
   []
   (println 
   "start typing for instrument playback!
-  +- : change octave
+  ,. : change octave
   ESC : quit"))
 
 (defn key-pressed [k]
