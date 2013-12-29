@@ -19,7 +19,7 @@
 						(let [k-char (translations k)
 							  prev (@keypress-state k-char)
 							  now (if (Keyboard/isKeyPressed k) :down :up)]
-							  (if (= now :down) (println "key: " k now))
+							  ;(if (= now :down) (println "key: " k now))
 							  (if (or (nil? k-char) (= prev now))
 							  	n
 								(assoc n k-char now)))))))))
