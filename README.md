@@ -3,10 +3,9 @@
 exploring audio generation with clojure
 
 ## deps
-```
 http://java.com/
+
 http://brew.sh/
-```
 
 ```
 brew install git
