@@ -1,6 +1,7 @@
 (ns audiogen.input
 	(:import org.jsfml.window.Keyboard
            	 org.jsfml.window.Keyboard$Key)
+	(:use audiogen.jsfml)
 	(:gen-class))
 
 (def keypress-state (agent {}))
@@ -15,16 +16,17 @@
 				(recur (rest remaining)
 					(if (= k Keyboard$Key/UNKNOWN) 
 						n
-						(let [k-k (clojure.string/lower-case (.name k))
-							  now (if (Keyboard/isKeyPressed k) :down :up)
-							  prev (@keypress-state k-k)]
-							  (if (= prev now) 
+						(let [k-char (translations k)
+							  prev (@keypress-state k-char)
+							  now (if (Keyboard/isKeyPressed k) :down :up)]
+							  (if (= now :down) (println "key: " k now))
+							  (if (or (nil? k-char) (= prev now))
 							  	n
-								(assoc n k-k now)))))))))
+								(assoc n k-char now)))))))))
 
 (defn key-state-watcher
 	[kp-fn kr-fn]
-	(let [watcher-fn 
+	(let [watcher-fn
 			(fn [keyz refz old-state new-state]
 				(doseq [k (keys old-state)]
 					(let [old-k (old-state k)

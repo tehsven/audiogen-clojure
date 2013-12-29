@@ -3,8 +3,8 @@
   (:gen-class))
 
 (def bindings {
-  "z" #(kick :amp 1),
-  "m" #(snare :amp 1),
-  "n" #(closed-hat :amp 1),
-  "b" #(open-hat :amp 1)
+  \z #(kick :amp 1),
+  \m #(snare :amp 1),
+  \n #(closed-hat :amp 1),
+  \b #(open-hat :amp 1)
   })

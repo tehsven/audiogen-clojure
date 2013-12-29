@@ -11,7 +11,7 @@
   +- : change octave
   ESC : quit"))
 
-(defn key-pressed [k] 
+(defn key-pressed [k]
   (key-dispatch k))
 
 (defn key-released [k]
