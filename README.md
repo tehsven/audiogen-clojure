@@ -3,7 +3,8 @@
 exploring audio generation with clojure
 
 ## deps
-java
+http://java.com/
+
 http://brew.sh/
 
 ```
