@@ -2,7 +2,8 @@
   (:use overtone.inst.piano)
   (:gen-class))
 
-(def oct (agent 72))
+(def oct
+  (agent 72))
 
 (defn play
 	"plays a note against the current octave"

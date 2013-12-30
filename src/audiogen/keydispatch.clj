@@ -1,7 +1,8 @@
 (ns audiogen.keydispatch
   (:gen-class))
 
-(def all-bindings (agent {}))
+(def all-bindings
+	(agent {}))
 
 (defn add-bindings
 	"adds a map of keys"
