@@ -1,7 +1,8 @@
 (ns audiogen.core
   (:use overtone.live
         audiogen.input
-        audiogen.keydispatch)
+        audiogen.keydispatch
+        audiogen.sysexit)
   (:gen-class))
 
 (defn print-usage
@@ -21,6 +22,7 @@
   "convert keystrokes into musical instrument playback"
   []
   (print-usage)
+  (send system-exit (fn [c n] n) false)
   (use-bindings 'audiogen.sysexit)
   (use-bindings 'audiogen.piano)
   (use-bindings 'audiogen.drums)

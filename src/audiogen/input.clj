@@ -1,7 +1,8 @@
 (ns audiogen.input
 	(:import org.jsfml.window.Keyboard
            	 org.jsfml.window.Keyboard$Key)
-	(:use audiogen.jsfml)
+	(:use audiogen.sysexit
+		  audiogen.jsfml)
 	(:gen-class))
 
 (def keypress-state
@@ -45,4 +46,5 @@
 				(fn [current changes]
 					(merge current changes)) changes))
 		(Thread/sleep 5)
-		(recur (build-key-changes))))
+		(if (not @system-exit)
+			(recur (build-key-changes)))))
