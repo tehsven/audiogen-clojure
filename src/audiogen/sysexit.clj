@@ -5,5 +5,5 @@
 	(agent false))
 
 (def bindings {
-	(char 27) (fn [] (println "sending") (send system-exit (fn [c n] n) true)) ;escape
+	(char 27) (fn [] (send system-exit (fn [c n] n) true)) ;escape
 	})
