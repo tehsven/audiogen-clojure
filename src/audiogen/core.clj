@@ -18,13 +18,22 @@
 (defn key-released [k]
   )
 
+(defn start
+  "convert keystrokes into musical instrument playback"
+  []
+  (print-usage)
+  (send system-exit (fn [c n] n) false)
+  (start-listening key-pressed key-released)
+
+  (println "thanks for playing!"))
+
 (defn start-default
   "convert keystrokes into musical instrument playback"
   []
   (print-usage)
   (send system-exit (fn [c n] n) false)
   (use-bindings 'audiogen.sysexit)
-  (use-bindings 'audiogen.piano)
+  (use-bindings 'audiogen.pianoscale)
   (use-bindings 'audiogen.drums)
 
   (start-listening key-pressed key-released)

@@ -1,5 +1,6 @@
 (ns audiogen.piano
-  (:use overtone.inst.piano)
+  (:use overtone.inst.piano
+        overtone.music.pitch)
   (:gen-class))
 
 (def oct
