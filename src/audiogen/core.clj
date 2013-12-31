@@ -33,7 +33,7 @@
   (print-usage)
   (send system-exit (fn [c n] n) false)
   (use-bindings 'audiogen.sysexit)
-  (use-bindings 'audiogen.pianoscale)
+  (use-bindings 'audiogen.pianochords)
   (use-bindings 'audiogen.drums)
 
   (start-listening key-pressed key-released)
