@@ -37,6 +37,6 @@
         row-w))
     {
       \1 #(use-chord-scale :c4 :major)
-      \2 #(use-chord-scale :d4 :minor)
+      \2 #(use-chord-scale :g4 :major)
       \3 #(use-chord-scale :f4 :locrian)
     }))
