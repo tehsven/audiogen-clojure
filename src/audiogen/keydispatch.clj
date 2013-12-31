@@ -13,7 +13,8 @@
   "adds bindings from the provided namespace"
   [namespace]
   	(require namespace)
-  	(add-bindings (var-get (ns-resolve namespace 'bindings))))
+  	(add-bindings (var-get (ns-resolve namespace 'bindings)))
+  	(println "bindings loaded: " namespace))
 
 (defn key-dispatch
 	"dispatches a keyboard keypress"

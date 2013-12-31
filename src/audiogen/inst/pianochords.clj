@@ -4,7 +4,6 @@
   (:gen-class))
 
 (def degrees '(:i :ii :iii :iv :v :vi :vii))
-(def row-1 '(\1 \2 \3 \4 \5 \6 \7 \8 \9 \0))
 (def row-q '(\q \w \e \r \t \y \u \i \o \p))
 (def row-w '(\a \s \d \f \g \h \j \k \l))
 (def row-z '(\z \x \c \v \b \n \m))
@@ -36,7 +35,7 @@
       (map #(vector %1 (fn [] (play-chord (@mappings %1))))
         row-w))
     {
-      \1 #(use-chord-scale :c4 :major)
-      \2 #(use-chord-scale :g4 :major)
-      \3 #(use-chord-scale :f4 :locrian)
+      \q #(use-chord-scale :c4 :major)
+      \w #(use-chord-scale :g4 :major)
+      \e #(use-chord-scale :f4 :locrian)
     }))

@@ -7,4 +7,9 @@
   				 [overtone "0.9.1"]
   				 [jline "2.11"]]
   :resource-paths ["lib/jsfml.jar"]
-  :repl-options {:init (load-file "src/audiogen/repl.clj") })
+  :repl-options {:init (do 
+		(ns user)
+		(use 'audiogen.core)
+		(ns audiogen.core)
+		(start-default))
+	})

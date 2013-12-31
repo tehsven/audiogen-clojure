@@ -31,6 +31,5 @@
   "convert keystrokes into musical instrument playback"
   []
   (use-bindings 'audiogen.sysexit)
-  (use-bindings 'audiogen.inst.pianochords)
-  (use-bindings 'audiogen.inst.drums)
+  (use-bindings 'audiogen.inst.switcher)
   (start))
