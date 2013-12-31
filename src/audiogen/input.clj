@@ -1,6 +1,4 @@
 (ns audiogen.input
-	(:import org.jsfml.window.Keyboard
-           	 org.jsfml.window.Keyboard$Key)
 	(:use audiogen.sysexit
 		  audiogen.jsfml)
 	(:gen-class))
@@ -10,31 +8,29 @@
 
 (defn build-key-changes
 	[]
-	(reduce
-		(fn [changes k]
-			(if (= k Keyboard$Key/UNKNOWN) 
-				changes
-				(let [t (translations k)
-					  prev (@keypress-state t)
-					  now (if (Keyboard/isKeyPressed k) :down :up)]
-					  (if (or (nil? t) (= prev now))
-					  	changes
-						(assoc changes t now)))))
-		{}
-		(Keyboard$Key/values)))
+	(into {}
+		(map (fn [k]
+			(let [t (jsfml-translations k)
+				  prev (@keypress-state t)
+				  now (if (jsfml-is-key-pressed k) :down :up)]
+				(if (and (not (nil? t)) (not= prev now))
+					(vector t now))))
+			jsfml-keys)))
 
 (defn key-state-watcher 
 	[key-pressed-fn key-released-fn]
-	(let [watcher-fn
-			(fn [keyz refz current changes]
-				(doseq [k (keys current)]
-					(let [prev-state (current k)
-						  new-state (changes k)]
-						(if (not= new-state prev-state)
-							(if (= :down new-state)
-								(key-pressed-fn k)
-								(key-released-fn k))))))]
-		watcher-fn))
+	(defn watcher-fn
+		[keyz refz current changes]
+		(doall
+			(map (fn [k]
+				(let [prev-state (current k)
+					  new-state (changes k)]
+					(if (not= new-state prev-state)
+						(if (= :down new-state)
+							(key-pressed-fn k)
+							(key-released-fn k)))))
+				(keys current))))
+	watcher-fn)
 
 (defn start-listening
 	[key-pressed-fn key-released-fn]

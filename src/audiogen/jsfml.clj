@@ -3,7 +3,7 @@
 			 org.jsfml.window.Keyboard$Key)
 	(:gen-class))
 
-(def translations {
+(def jsfml-translations {
 	(Keyboard$Key/A) \a
 	(Keyboard$Key/B) \b
 	(Keyboard$Key/C) \c
@@ -45,6 +45,13 @@
 	(Keyboard$Key/PERIOD) \.
 	(Keyboard$Key/ESCAPE) (char 27)
 	})
+
+(def jsfml-keys
+	(keys jsfml-translations))
+
+(defn jsfml-is-key-pressed
+	[k]
+	(Keyboard/isKeyPressed k))
 
 (comment
 	(Keyboard$Key/LBRACKET)
