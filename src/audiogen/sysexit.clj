@@ -1,9 +1,9 @@
 (ns audiogen.sysexit
-  	(:gen-class))
+	(:gen-class))
 
 (def system-exit
-	(agent false))
+  (agent false))
 
 (def bindings {
-	(char 27) (fn [] (send system-exit (fn [c n] n) true)) ;escape
-	})
+  (char 27) (fn [] (send system-exit (fn [c] true))) ;escape
+  })

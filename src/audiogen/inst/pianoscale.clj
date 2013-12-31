@@ -23,8 +23,8 @@
     (build-scale scale-root scale-name))))
 
 (defn play
-	"plays scales"
-	[note]
+  "plays scales"
+  [note]
   (if (not (nil? note))
     (piano note)))
 

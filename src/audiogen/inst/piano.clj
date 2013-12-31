@@ -7,9 +7,9 @@
   (agent 72))
 
 (defn play
-	"plays a note against the current octave"
-	[note]
-	(piano (+ @oct note)))
+  "plays a note against the current octave"
+  [note]
+  (piano (+ @oct note)))
 
 (def bindings {
   \, #(send oct (fn [c] (- c 12))),

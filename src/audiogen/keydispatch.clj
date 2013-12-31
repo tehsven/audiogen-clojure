@@ -2,21 +2,21 @@
   (:gen-class))
 
 (def all-bindings
-	(agent {}))
+  (agent {}))
 
 (defn add-bindings
-	"adds a map of keys"
-	[new-bindings]
-	(send all-bindings #(merge %1 %2) new-bindings))
+  "adds a map of keys"
+  [new-bindings]
+  (send all-bindings #(merge %1 %2) new-bindings))
 
 (defn use-bindings
   "adds bindings from the provided namespace"
   [namespace]
-  	(require namespace)
-  	(add-bindings (var-get (ns-resolve namespace 'bindings)))
-  	(println "bindings loaded: " namespace))
+  (require namespace)
+  (add-bindings (var-get (ns-resolve namespace 'bindings)))
+  (println "bindings loaded: " namespace))
 
 (defn key-dispatch
-	"dispatches a keyboard keypress"
-	[kp-str]
-	((@all-bindings kp-str #(println kp-str)))) ;evaluate
+  "dispatches a keyboard keypress"
+  [kp-str]
+  ((@all-bindings kp-str #(println kp-str)))) ;evaluate

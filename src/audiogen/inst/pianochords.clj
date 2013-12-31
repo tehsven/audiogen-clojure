@@ -24,8 +24,8 @@
     (build-chord-scale root scale-name))))
 
 (defn play-chord
-	"plays chords"
-	[notes]
+  "plays chords"
+  [notes]
   (if (not (nil? notes))
     (doall (map #(piano %1) notes))))
 

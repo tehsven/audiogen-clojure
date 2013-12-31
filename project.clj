@@ -4,12 +4,12 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.5.1"]
-  				 [overtone "0.9.1"]
-  				 [jline "2.11"]]
+                 [overtone "0.9.1"]
+                 [jline "2.11"]]
   :resource-paths ["lib/jsfml.jar"]
   :repl-options {:init (do 
-		(ns user)
-		(use 'audiogen.core)
-		(ns audiogen.core)
-		(start-default))
-	})
+    (ns user)
+    (use 'audiogen.core)
+    (ns audiogen.core)
+    (start-default))
+  })
