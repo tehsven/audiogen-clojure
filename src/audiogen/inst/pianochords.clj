@@ -1,4 +1,4 @@
-(ns audiogen.pianochords
+(ns audiogen.inst.pianochords
   (:use overtone.inst.piano
         overtone.music.pitch)
   (:gen-class))

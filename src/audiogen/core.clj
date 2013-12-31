@@ -30,12 +30,7 @@
 (defn start-default
   "convert keystrokes into musical instrument playback"
   []
-  (print-usage)
-  (send system-exit (fn [c n] n) false)
   (use-bindings 'audiogen.sysexit)
-  (use-bindings 'audiogen.pianochords)
-  (use-bindings 'audiogen.drums)
-
-  (start-listening key-pressed key-released)
-
-  (println "thanks for playing!"))
+  (use-bindings 'audiogen.inst.pianochords)
+  (use-bindings 'audiogen.inst.drums)
+  (start))

@@ -1,4 +1,4 @@
-(ns audiogen.drums
+(ns audiogen.inst.drums
   (:use overtone.inst.drum)
   (:gen-class))
 
